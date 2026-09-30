@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zainab Soomro | English Teaching Internship Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f4f0;
+  --card:#fff;
+  --ink:#000;
+  --mut:#5f5f5a;
+  --line:#d8d8d0;
+  --pink:#ff90e8;
+  --teal:#23a094;
+  --yel:#ffc900;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:#000;font:400 17px/1.6 Inter,"Helvetica Neue",Arial,sans-serif}
+a{color:inherit}:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:99;background:#fff;border-bottom:1px solid #000}
+nav .wrap{display:flex;align-items:center;gap:6px;height:72px;overflow-x:auto;white-space:nowrap;max-width:none;padding:0 24px}
+nav b{font-weight:800;font-size:22px;letter-spacing:-.04em;margin-right:auto;display:flex;align-items:center;gap:10px}
+nav b i{font:600 13px Inter,sans-serif;letter-spacing:0;border:1px solid #000;border-radius:99px;padding:3px 12px;background:#fcfcf9}
+nav a{text-decoration:none;font-size:15px;padding:8px 15px;border-radius:99px;font-weight:500}
+nav a:hover{background:var(--bg)}
+nav a.on{background:#000;color:#fff}
+
+/* HERO SECTION */
+.hero{background:var(--bg);position:relative;overflow:hidden;padding:70px 0 65px}
+.hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:48px;align-items:center;position:relative;z-index:2}
+.hero-intro{text-align:left}
+.chip{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #000;padding:6px 16px;border-radius:99px;font-size:14px;font-weight:600;margin-bottom:18px;box-shadow:2px 2px 0 #000}
+.hero h1{font:800 clamp(36px,4.5vw,60px)/1.08 Inter,sans-serif;letter-spacing:-.045em;margin:0 0 24px;color:#000}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:6px 0 26px}
+.btn{display:inline-block;padding:15px 24px;border-radius:4px;background:#000;color:#fff;font-weight:600;font-size:16px;text-decoration:none;border:1px solid #000;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translate(-3px,-3px);box-shadow:4px 4px 0 var(--pink)}
+.btn.o{background:#fff;color:#000}
+.btn.o:hover{box-shadow:4px 4px 0 #000}
+
+.hero-stats-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.hero-stat-badge{background:#fff;border:1px solid #000;border-radius:4px;padding:8px 14px;display:flex;align-items:center;gap:8px;font-size:13.5px}
+.hero-stat-badge b{font-size:16px;color:#000}
+.hero-stat-badge span{color:var(--mut)}
+
+/* BIG VERTICAL CORNER-LESS PROFILE CARD */
+.profile-card-col{display:flex;justify-content:center}
+.profile-card{
+  background:#fff;
+  border:2px solid #000;
+  border-radius:0; /* Explicitly corner-less as requested */
+  padding:22px;
+  box-shadow:8px 8px 0 #000;
+  width:100%;
+  max-width:430px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  text-align:left;
+  transition:transform .2s,box-shadow .2s;
+  position:relative;
+}
+.profile-card:hover{transform:translate(-2px,-2px);box-shadow:10px 10px 0 var(--pink)}
+.profile-img-wrap{
+  width:100%;
+  aspect-ratio:4/3.8;
+  border:1.5px solid #000;
+  border-radius:0; /* Corner-less */
+  overflow:hidden;
+  background:#f9f5f0;
+  position:relative;
+}
+.profile-img-wrap img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 25%;
+  display:block;
+}
+.img-badge{
+  position:absolute;
+  bottom:10px;
+  left:10px;
+  background:#000;
+  color:#fff;
+  font-size:11.5px;
+  font-weight:700;
+  padding:4px 10px;
+  border-radius:0; /* Corner-less */
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.profile-info{display:flex;flex-direction:column;gap:12px}
+.profile-role{
+  font-size:12px;
+  font-weight:700;
+  color:var(--teal);
+  text-transform:uppercase;
+  letter-spacing:.06em;
+}
+.profile-name{
+  margin:0;
+  font-size: clamp(26px,2.6vw,32px);
+  font-weight:800;
+  letter-spacing:-.03em;
+  color:#000;
+  line-height:1.15;
+}
+.profile-inst{
+  font-size:14px;
+  color:var(--mut);
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+  line-height:1.4;
+}
+.profile-inst span.icon{font-size:18px;line-height:1}
+
+/* BIO BOX IN CARD */
+.profile-bio{
+  background:#fafaf7;
+  border:1px solid #000;
+  border-left:4px solid var(--pink);
+  border-radius:0; /* Corner-less */
+  padding:14px;
+  font-size:14px;
+  line-height:1.55;
+  color:#111;
+}
+.bio-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:4px;
+  font-size:11.5px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  color:#000;
+}
+.profile-bio p{margin:0}
+
+/* PROFILE META TAGS */
+.profile-meta-tags{display:flex;flex-wrap:wrap;gap:6px}
+.p-tag{
+  font-size:11.5px;
+  font-weight:600;
+  background:#fff;
+  border:1px solid #000;
+  border-radius:0; /* Corner-less */
+  padding:3px 9px;
+  color:#000;
+}
+
+/* FLOATING COINS (SUBTLE BACKGROUND ACCENT) */
+.coin{position:absolute;border-radius:50%;background:var(--pink);border:2px solid #000;display:grid;place-items:center;font:900 italic 44px Inter,sans-serif;box-shadow:8px 5px 0 -2px #e56fcb,8px 5px 0 0 #000;z-index:1;opacity:.4;pointer-events:none}
+.c1{width:90px;height:90px;left:2%;top:50px;transform:rotate(-24deg)}
+.c2{width:110px;height:110px;left:-35px;top:54%}
+.c3{width:80px;height:80px;right:2%;top:40px;transform:rotate(18deg)}
+.c4{width:110px;height:110px;right:1%;bottom:40px;transform:rotate(-12deg)}
+
+/* SECTIONS COMMON */
+section{padding:84px 0;border-top:1px solid #000}
+h2{font:700 clamp(32px,4vw,50px)/1.1 Inter,sans-serif;letter-spacing:-.04em;margin:0 0 10px}
+.sub{color:var(--mut);margin:0 0 36px;max-width:64ch;font-size:18px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:48px 0}
+.stat{background:#fff;border:1px solid #000;border-radius:18px;padding:24px}
+.stat b{display:block;font:700 46px/1 Inter,sans-serif;letter-spacing:-.04em}
+.stat span{color:var(--mut);font-size:15px}
+.grid{display:grid;gap:18px}.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}
+.card{background:#fff;border:1px solid #000;border-radius:20px;padding:28px}
+.card h3{margin:0 0 8px;font-size:20px;letter-spacing:-.02em;font-weight:600}.card p{margin:0;color:var(--mut);font-size:16px}
+.place .ic{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-size:24px;margin-bottom:18px;background:var(--pink);border:1px solid #000}
+.obj{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.o{background:#fff;border:1px solid #000;border-radius:14px;padding:18px 20px;font-size:15.5px}
+.o b{font-weight:700;background:linear-gradient(transparent 60%,var(--pink) 60%)}
+
+/* LOGBOOK */
+#logbook{background:var(--pink)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.tabs button{font:600 15px Inter,sans-serif;padding:10px 20px;border-radius:99px;border:1px solid #000;background:#fff;color:#000;cursor:pointer}
+.tabs button[aria-pressed=true]{background:#000;color:#fff}
+.tl{display:grid;gap:14px}
+details.day{background:#fff;border:1px solid #000;border-radius:18px;overflow:hidden}
+details.day summary{list-style:none;cursor:pointer;display:flex;gap:16px;align-items:center;padding:18px 22px}
+details.day summary::-webkit-details-marker{display:none}
+.dn{flex:none;width:50px;height:50px;border-radius:12px;background:#fff;border:1px solid #000;display:grid;place-items:center;font:700 20px Inter,sans-serif}
+.dn.t{background:var(--pink)}
+.st{flex:1;min-width:0}.st b{display:block;font-weight:600;letter-spacing:-.01em}.st small{color:var(--mut)}
+.hr{font-weight:600;border:1px solid #000;border-radius:99px;padding:3px 14px;white-space:nowrap;font-size:14px}
+details[open] summary{border-bottom:1px solid #000}
+.body{padding:20px 22px;display:grid;gap:14px;font-size:15.5px}
+.body h4{margin:0 0 2px;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.06em}.body p{margin:0;color:var(--mut)}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:2px 10px;border-radius:99px;background:var(--yel);color:#000;border:1px solid #000;margin-left:8px}
+
+/* JOURNAL */
+.wk{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.wk .card h3{font-size:28px;font-weight:600;letter-spacing:-.03em}
+.wk h4{margin:20px 0 6px;font-size:13px;text-transform:uppercase;letter-spacing:.06em}
+.wk .card p{line-height:1.7}
+.meta{font-size:14px;color:var(--mut);margin-bottom:12px}
+
+/* EVIDENCE SECTION - 12 PHOTO BOXES + GRAPH BOX IN EACH ROW */
+.lesson{margin-bottom:52px;background:#fff;border:1.5px solid #000;border-radius:18px;padding:28px;box-shadow:4px 4px 0 #000}
+.lesson-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px;border-bottom:1px solid var(--line);padding-bottom:14px}
+.lesson-head h3{margin:0;font-size:24px;font-weight:700;letter-spacing:-.02em}
+.lesson-head p{margin:0;color:var(--mut);font-size:15.5px}
+.badge-pct{background:var(--yel);border:1px solid #000;padding:4px 12px;border-radius:99px;font-size:13px;font-weight:700}
+
+.ev{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ev-figure{
+  margin:0;
+  background:#fff;
+  border:1.5px solid #000;
+  border-radius:12px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  box-shadow:2px 2px 0 #000;
+}
+.ev-img-wrap{
+  position:relative;
+  width:100%;
+  aspect-ratio:4/3;
+  background:#f9f9f6;
+  border-bottom:1.5px solid #000;
+  overflow:hidden;
+}
+.ev-img-wrap img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .2s;
+}
+.ev-figure:hover .ev-img-wrap img{transform:scale(1.02)}
+.fig-tag{
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:#fff;
+  border:1px solid #000;
+  color:#000;
+  font-size:11px;
+  font-weight:700;
+  padding:3px 8px;
+  border-radius:4px;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  box-shadow:1px 1px 0 #000;
+}
+.ev-figure figcaption{padding:14px 16px;font-size:14.5px;flex:1;background:#fff}
+.ev-figure figcaption b{display:block;font-weight:700;font-size:15px;margin-bottom:4px;color:#000}
+.ev-figure figcaption span{color:var(--mut);font-size:13.5px;line-height:1.45;display:block}
+
+/* GRAPH BOX CARD (LEAVE GRAPH BOX IN EACH LINE) */
+.graph-card{
+  background:#fafaf8;
+  border:1.5px solid #000;
+  border-radius:12px;
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  box-shadow:2px 2px 0 #000;
+}
+.graph-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:10px;
+}
+.graph-pill{
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  padding:3px 8px;
+  background:#000;
+  color:#fff;
+  border-radius:4px;
+}
+.graph-score{
+  font-size:18px;
+  font-weight:800;
+  color:#000;
+  letter-spacing:-.02em;
+}
+.graph-viz{
+  width:100%;
+  aspect-ratio:4/2.6;
+  background:#fff;
+  border:1px solid #000;
+  border-radius:8px;
+  padding:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:12px;
+}
+.graph-viz svg{width:100%;height:100%;display:block}
+.graph-meta{font-size:14.5px}
+.graph-meta b{display:block;font-weight:700;font-size:15px;margin-bottom:4px;color:#000}
+.graph-meta span{color:var(--mut);font-size:13.5px;line-height:1.45;display:block}
+
+.chartbox{background:#fff;border:1px solid #000;border-radius:20px;padding:24px;overflow-x:auto}
+.chartbox svg{min-width:420px;width:100%;height:auto;display:block}
+
+/* SUPERVISOR & REPORT */
+.sup{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.sig{height:90px;border:1px dashed #000;border-radius:12px;display:grid;place-items:center;color:var(--mut);font-size:15px;margin-top:16px}
+.rep li{margin:6px 0}
+footer{background:#000;color:#fff;padding:40px 0;text-align:center;font-size:15px}
+
+/* RESPONSIVE BREAKPOINTS */
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;text-align:center;gap:36px}
+  .hero-intro{text-align:center}
+  .hero-actions{justify-content:center}
+  .hero-stats-row{justify-content:center}
+  .profile-card{margin:0 auto}
+  .ev{grid-template-columns:1fr}
+  .g2,.g3,.wk,.sup{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .obj{grid-template-columns:1fr 1fr}
+  .hero{padding:60px 0 50px}
+  .coin{opacity:.25}
+  .c1{left:-20px;top:20px}
+  .c2{display:none}
+  .c3{right:-20px;top:20px}
+  .c4{display:none}
+}
+@media (max-width:560px){
+  .stats{grid-template-columns:1fr}
+  .obj{grid-template-columns:1fr}
+  section{padding:54px 0}
+  details.day summary{flex-wrap:wrap}
+  .coin{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <b>Zainab Soomro<i>Internship 2026</i></b>
+    <a href="#profile">Profile</a>
+    <a href="#placement">Placement</a>
+    <a href="#objectives">Objectives</a>
+    <a href="#logbook">Logbook</a>
+    <a href="#journal">Journal</a>
+    <a href="#evidence">Evidence</a>
+    <a href="#supervisor">Evaluation</a>
+    <a href="#report">Report</a>
+  </div>
+</nav>
+
+<header class="hero" id="profile">
+  <span class="coin c1" aria-hidden="true">Z</span>
+  <span class="coin c2" aria-hidden="true">Z</span>
+  <span class="coin c3" aria-hidden="true">Z</span>
+  <span class="coin c4" aria-hidden="true">Z</span>
+
+  <div class="wrap hero-grid">
+    <!-- LEFT COLUMN: TITLE & ACTIONS (Changes 1 & 3 applied) -->
+    <div class="hero-intro">
+      <span class="chip">Student Internship Portfolio · 2026</span>
+      <!-- Change 1: Internship & Portfolio title mixture -->
+      <h1>English Teaching Internship &amp; Portfolio</h1>
+      
+      <!-- Change 3: Paragraph text removed per user instructions -->
+      <div class="hero-actions">
+        <a class="btn" href="#logbook">Read the logbook</a>
+        <a class="btn o" href="#evidence">See classroom evidence</a>
+      </div>
+
+      <div class="hero-stats-row">
+        <div class="hero-stat-badge"><b>5</b><span>Lessons taught</span></div>
+        <div class="hero-stat-badge"><b>38</b><span>Hours logged</span></div>
+        <div class="hero-stat-badge"><b>50+</b><span>Students / class</span></div>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN: BIG VERTICAL CORNER-LESS PROFILE CARD (Change 2 applied) -->
+    <div class="profile-card-col">
+      <div class="profile-card">
+        <div class="profile-img-wrap">
+          <!-- Main profile image: Uses images/profile.jpg with fallback -->
+          <img src="images/profile.jpg" alt="Zainab Soomro" class="profile-img" onerror="this.onerror=null;this.src='images/parts_of_speech_teaching.jpg';">
+          <span class="img-badge">Teaching Intern</span>
+        </div>
+
+        <div class="profile-info">
+          <div class="profile-role">Internship 2026 · Applied Linguistics</div>
+          <!-- Big, prominent, bold name so it is 100% visible -->
+          <h2 class="profile-name">Zainab Soomro</h2>
+
+          <div class="profile-inst">
+            <span class="icon">🏫</span>
+            <span>Government College for Information Technology, Gurunagar, Hyderabad</span>
+          </div>
+
+          <!-- User Personal Description: who and what I am -->
+          <div class="profile-bio" id="user-description-box">
+            <div class="bio-head">
+              <span>About Me &amp; Teaching Philosophy</span>
+            </div>
+            <p>I am Zainab Soomro, an undergraduate student of BS English, specializing in Applied Linguistics at the University of Sindh, Jamshoro. My academic interests focus on English language learning, teaching, communication, and the practical application of linguistic knowledge. Through my internship, I have had the opportunity to connect my academic learning with classroom practice and gain a deeper understanding of teaching and student learning. This experience has strengthened my interest in English language education and supported my development as a future language educator.</p>
+          </div>
+
+          <div class="profile-meta-tags">
+            <span class="p-tag">First Year Class (50+)</span>
+            <span class="p-tag">Communicative ELT</span>
+            <span class="p-tag">GCIT Hyderabad</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="stats">
+    <div class="stat"><b>38</b><span>Hours logged</span></div>
+    <div class="stat"><b>5</b><span>Lessons taught</span></div>
+    <div class="stat"><b>50+</b><span>Students per class</span></div>
+    <div class="stat"><b>85–90%</b><span>Students showing good understanding</span></div>
+  </div>
+</div>
+
+<section id="placement">
+  <div class="wrap">
+    <h2>Internship placement</h2>
+    <p class="sub">Where I taught and who guided me.</p>
+    <div class="grid g3 place">
+      <div class="card"><div class="ic">🏫</div><h3>Institute</h3><p>Government College for Information Technology, Gurunagar, Hyderabad</p></div>
+      <div class="card"><div class="ic">🎓</div><h3>Principal</h3><p>Prof. Nawab Ali Rahoo</p></div>
+      <div class="card"><div class="ic">👩‍🏫</div><h3>Supervisor</h3><p>Assistant Professor Areej Ijlal</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="objectives" style="padding-top:0">
+  <div class="wrap">
+    <h2>Internship objectives</h2>
+    <p class="sub">What I set out to learn and practise.</p>
+    <div class="obj" id="objs"></div>
+  </div>
+</section>
+
+<section id="logbook">
+  <div class="wrap">
+    <h2>Internship logbook</h2>
+    <p class="sub">Nine entries from 4 to 30 September 2026. Open an entry to read what I did and the skills I built.</p>
+    <div class="tabs" role="group" aria-label="Filter entries">
+      <button aria-pressed="true" data-f="all">All entries</button>
+      <button aria-pressed="false" data-f="teach">Teaching days</button>
+      <button aria-pressed="false" data-f="att">Orientation and meetings</button>
+    </div>
+    <div class="tl" id="tl"></div>
+    <div class="chartbox" style="margin-top:28px">
+      <h3 style="margin:0 0 6px">Hours logged per entry</h3>
+      <div id="hrs"></div>
+    </div>
+  </div>
+</section>
+
+<section id="journal">
+  <div class="wrap">
+    <h2>Reflective journal</h2>
+    <p class="sub">Weekly reflections on what I learned and what I will change.</p>
+    <div class="wk">
+      <article class="card">
+        <h3>Week 1</h3>
+        <div class="meta">18-09-2026</div>
+        <h4>What did I learn this week?</h4>
+        <p>I learned about the internship process, required tasks, evidence collection and report preparation, and applied teaching methods and linguistic theories in real classroom settings. I taught a First Year co-educational class of 50+ students through reading comprehension, vocabulary, parts of speech and contextual activities. From the chapter “Quaid on 11th August, 1947” I ran reading and explanation, word meanings, phrases and idioms, synonyms and antonyms, MCQs, short questions, pair work and whole-class checking, and about 85% of students showed good understanding. With the Dawn story “The Word War”, I taught the eight parts of speech using charts and sticky notes in a boys-versus-girls activity, and about 90% identified them correctly. Students understand language better when they work with examples and take part in activities.</p>
+        <h4>What can I do differently next week?</h4>
+        <p>I will focus on individual participation and speaking practice: more chances to come to the dais, use new vocabulary in their own sentences, and complete short independent activities. I will also give extra practice to students who hesitate.</p>
+      </article>
+      <article class="card">
+        <h3>Week 2</h3>
+        <div class="meta">25-09-2026</div>
+        <h4>What did I learn this week?</h4>
+        <p>I worked on word formation, self-introduction, lexical relations, homophones and homonyms. I explained affixes, prefixes, suffixes, roots and base words, then introduced the parts of a self-introduction with a worksheet and speaking practice. About 85% of students understood word formation and completed the activities correctly. I invited students to the dais at random to introduce themselves, then taught homophony and homonymy with a boys-versus-girls competition, where about 90% showed good understanding. Written preparation, speaking practice, contextual examples and active participation all matter.</p>
+        <h4>What can I do differently next week?</h4>
+        <p>I will give clearer, better organised instructions before each activity, use short examples for punctuation and multilingualism, check understanding before moving on, and manage activity time so students can think, respond and correct their own mistakes.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- EVIDENCE SECTION: 12 PHOTO BOXES (6 LESSONS x 2 PHOTOS) + GRAPH BOX IN EACH ROW -->
+<section id="evidence">
+  <div class="wrap">
+    <h2>Samples of work and evidence</h2>
+    <p class="sub">Classroom photographs and assessment results for each lesson. Teaching photos show instructor facilitating, activity photos show students performing tasks, and each line features its evaluation graph.</p>
+    
+    <div id="lessons"></div>
+
+    <div class="chartbox" style="margin-top:36px">
+      <h3 style="margin:0 0 6px">Overall student understanding rate by lesson</h3>
+      <div id="pct"></div>
+    </div>
+  </div>
+</section>
+
+<section id="supervisor">
+  <div class="wrap">
+    <h2>Supervisor evaluation</h2>
+    <p class="sub">To be completed by the placement supervisor.</p>
+    <div class="sup">
+      <div class="card">
+        <h3>Supervisor</h3>
+        <p>Assistant Professor Areej Ijlal<br>Government College for Information Technology, Hyderabad</p>
+        <div class="sig">Signature and stamp</div>
+      </div>
+      <div class="card">
+        <h3>Evaluation form</h3>
+        <p>Attach the scanned supervisor evaluation template here.</p>
+        <div class="sig" style="height:140px">Scanned evaluation page</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="report" style="padding-top:0">
+  <div class="wrap">
+    <h2>Internship report</h2>
+    <p class="sub">The final report brings together the logbook, journal and evidence.</p>
+    <div class="card rep">
+      <h3>Contents</h3>
+      <ol>
+        <li>Student profile and placement details</li>
+        <li>Objectives and how each was met</li>
+        <li>Summary of lessons and activities</li>
+        <li>Reflection on classroom management and student engagement</li>
+        <li>Challenges and how I adapted my strategies</li>
+        <li>Conclusion and next steps</li>
+      </ol>
+      <p style="margin-top:14px"><a class="btn" href="#" id="rep">Open the full report</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Zainab Soomro · Student Internship Portfolio · September 2026</div>
+</footer>
+
+<script>
+/* OBJECTIVES DATA */
+var O=[
+  "Apply <b>teaching methods and linguistic theories</b> in a real classroom.",
+  "Gain practical experience in <b>English language teaching</b> through observation, planning and teaching.",
+  "Present <b>language concepts through examples and meaningful contexts</b>.",
+  "Encourage students to become <b>active participants</b> in learning.",
+  "Improve <b>classroom management and engagement</b> in a large co-educational class.",
+  "Build skills in <b>lesson preparation, activity design, questioning and assessment</b>.",
+  "Help students <b>use and apply language knowledge</b> in different contexts.",
+  "Strengthen students’ <b>written and oral communication</b> through practice.",
+  "<b>Identify learning difficulties</b> and give appropriate support.",
+  "Observe responses and <b>adapt strategies to learning needs</b>.",
+  "Connect <b>Applied Linguistics with classroom teaching</b> and reflect for continuous improvement."
+];
+document.getElementById('objs').innerHTML=O.map(function(x){return '<div class="o">'+x+'</div>'}).join('');
+
+/* LOGBOOK ENTRIES DATA */
+var D=[
+  [1,'4 Sep · Fri','Internship orientation',1,0,'Attended an orientation on the internship process, placement selection, required tasks, evidence collection and report submission. Instructed to apply teaching methods and linguistic theories in real settings.','Communication, understanding of internship requirements, teaching-method awareness, documentation.'],
+  [2,'10 Sep · Thu','Internship class: revised hours',1,0,'Attended the internship class, received updates on the revised internship hours and clarified queries with Ma’am Bakhtawar.','Communication and understanding of internship hours.'],
+  [3,'16 Sep · Wed','Reading comprehension: “Quaid on 11th August”',5,1,'Taught the First Year chapter through reading and explanation, word meanings, phrases and idioms, synonyms and antonyms, MCQs and comprehension questions. Guided pair work and checked answers together.','Reading and communication, questioning and assessment, student interaction and macro-teaching in a class of 50+.'],
+  [4,'17 Sep · Thu','Internship class',1,0,'Attended the internship class and clarified queries with Ms. Bakhtawar.','Communication, active listening, understanding of internship procedures.'],
+  [5,'18 Sep · Fri','Parts of speech: “The Word War”',7,1,'Introduced the Dawn story and why vocabulary matters in real-life contexts. Gave an overview of the eight parts of speech with colourful charts. Students found two examples of each on sticky notes in a boys-versus-girls competition.','Activity-based teaching, engagement, classroom management, contextual learning. Breakdown: teaching 3 h, task preparation 3 h, assessment 1 h.'],
+  [6,'23 Sep · Wed','Word formation and self-introduction',8,1,'Taught affixes, prefixes, suffixes, roots and base words; students split words into prefix + base + suffix and formed new words. Introduced the parts of a self-introduction (greeting, name, class, college, interests, goal, closing) with a fill-in worksheet, then speaking practice.','Morphological awareness, vocabulary building, sentence construction, fluency, confidence in speaking. Breakdown: teaching 5 h, preparation 2 h, assessment 1 h.'],
+  [7,'24 Sep · Thu','Internship class: workplace and progress',1,0,'Ma’am Palwasha asked about our workplace selection and how to manage activities smoothly. Clarified queries and received feedback on progress and requirements.','Active listening, organisation, time management, problem solving, receiving feedback.'],
+  [8,'25 Sep · Fri','Lexical relations: homophones and homonyms',6,1,'Reviewed earlier topics with questions and invited students to the dais for self-introductions. Taught homophony and homonymy with student examples, two boys-versus-girls activities and a rapid verbal review.','Lexical awareness, critical thinking, contextual understanding, speaking fluency, recall. Breakdown: teaching 3 h, preparation 2 h, assessment 1 h.'],
+  [9,'30 Sep · Wed','Punctuation and capitalization',8,1,'Opened with the story of a girl who wrote “Let’s eat grandma” without punctuation to show how it changes meaning. Students added punctuation in pairs, learned the full stop, question mark, exclamation mark, comma, colon and semicolon, then rewrote an unpunctuated paragraph and corrected sentences.','Punctuation, capitalization, editing and proofreading; introducing concepts through meaningful contexts. Breakdown: teaching 5 h, preparation 2 h, assessment 1 h.']
+];
+
+function tl(f){
+  document.getElementById('tl').innerHTML=D.filter(function(d){return f=='all'||(f=='teach')==!!d[4]}).map(function(d){
+    return '<details class="day"><summary><span class="dn'+(d[4]?' t':'')+'">'+d[0]+'</span><span class="st"><b>'+d[2]+'</b><small>'+d[1]+(d[4]?'<span class="pill">Teaching</span>':'')+'</small></span><span class="hr">'+d[3]+' h</span></summary><div class="body"><div><h4>Activities performed</h4><p>'+d[5]+'</p></div><div><h4>Skills developed</h4><p>'+d[6]+'</p></div></div></details>';
+  }).join('');
+}
+tl('all');
+
+document.querySelectorAll('.tabs button').forEach(function(b){
+  b.onclick=function(){
+    document.querySelectorAll('.tabs button').forEach(function(x){x.setAttribute('aria-pressed',x==b)});
+    tl(b.dataset.f);
+  }
+});
+
+/* SVG BAR CHART GENERATOR FOR HOURS */
+function bars(id,items,max,unit,cols){
+  var W=Math.max(items.length*70,420),h=220,s='<svg viewBox="0 0 '+W+' '+(h+50)+'" role="img">';
+  [0,.5,1].forEach(function(t){
+    var y=h-t*(h-20);
+    s+='<line x1="0" x2="'+W+'" y1="'+y+'" y2="'+y+'" stroke="var(--line)"/>';
+  });
+  items.forEach(function(it,i){
+    var bw=W/items.length,x=i*bw+bw*.2,bh=it[1]/max*(h-20),y=h-bh;
+    s+='<rect x="'+x+'" y="'+y+'" width="'+bw*.6+'" height="'+bh+'" rx="6" stroke="#000" stroke-width="1.5" fill="'+cols[i%cols.length]+'"/>'
+      +'<text x="'+(x+bw*.3)+'" y="'+(y-8)+'" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)">'+it[1]+unit+'</text>'
+      +'<text x="'+(x+bw*.3)+'" y="'+(h+22)+'" text-anchor="middle" font-size="12" fill="var(--mut)">'+it[0]+'</text>';
+  });
+  document.getElementById(id).innerHTML=s+'</svg>';
+}
+var C=['#ff90e8','#ffc900','#23a094','#f4f4f0'];
+bars('hrs',D.map(function(d){return ['Day '+d[0],d[3]]}),8,' h',C);
+
+/* IMAGE FALLBACK PLACEHOLDER GENERATOR */
+function handleImgError(img, type, filename, note){
+  img.onerror=null;
+  var name = filename.replace(/^images\//,'');
+  var s = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">'
+    +'<rect width="400" height="300" fill="#fcfcf9"/>'
+    +'<rect x="14" y="14" width="372" height="272" rx="8" fill="#fff" stroke="#000" stroke-width="1.5" stroke-dasharray="6 6"/>'
+    +'<circle cx="200" cy="100" r="30" fill="'+(type=='Teaching'?'#ff90e8':'#ffc900')+'" stroke="#000" stroke-width="1.5"/>'
+    +'<text x="200" y="108" font-family="sans-serif" font-size="24" text-anchor="middle">📷</text>'
+    +'<text x="200" y="158" font-family="Inter,sans-serif" font-size="15" font-weight="700" fill="#000" text-anchor="middle">'+type+' Photo Slot</text>'
+    +'<text x="200" y="186" font-family="monospace" font-size="12" font-weight="600" fill="#23a094" text-anchor="middle">images/'+name+'</text>'
+    +'<text x="200" y="214" font-family="Inter,sans-serif" font-size="12" fill="#5f5f5a" text-anchor="middle">'+note+'</text>'
+    +'</svg>';
+  img.src='data:image/svg+xml;utf8,'+encodeURIComponent(s);
+}
+
+/* MINI SVG GRAPH GENERATOR FOR EACH LESSON ROW */
+function miniGraph(pct, eng){
+  var score = pct || 85;
+  var active = eng || 90;
+  return '<svg viewBox="0 0 280 120" role="img">'
+    +'<line x1="12" y1="95" x2="268" y2="95" stroke="#d8d8d0" stroke-width="1.5"/>'
+    +'<line x1="12" y1="55" x2="268" y2="55" stroke="#e8e8e0" stroke-width="1" stroke-dasharray="3,3"/>'
+    +'<line x1="12" y1="15" x2="268" y2="15" stroke="#e8e8e0" stroke-width="1" stroke-dasharray="3,3"/>'
+    +'<!-- Class Total Bar -->'
+    +'<rect x="36" y="20" width="46" height="75" rx="3" fill="#f4f4f0" stroke="#000" stroke-width="1.5"/>'
+    +'<text x="59" y="14" text-anchor="middle" font-size="11" font-weight="700" fill="#000">50+</text>'
+    +'<text x="59" y="110" text-anchor="middle" font-size="11" fill="#5f5f5a">Class</text>'
+    +'<!-- Engagement Bar -->'
+    +'<rect x="116" y="'+(95 - active*0.75)+'" width="46" height="'+(active*0.75)+'" rx="3" fill="#ffc900" stroke="#000" stroke-width="1.5"/>'
+    +'<text x="139" y="'+(95 - active*0.75 - 5)+'" text-anchor="middle" font-size="11" font-weight="700" fill="#000">'+active+'%</text>'
+    +'<text x="139" y="110" text-anchor="middle" font-size="11" fill="#5f5f5a">Active</text>'
+    +'<!-- Mastery / Result Bar -->'
+    +'<rect x="196" y="'+(95 - score*0.75)+'" width="46" height="'+(score*0.75)+'" rx="3" fill="#ff90e8" stroke="#000" stroke-width="1.5"/>'
+    +'<text x="219" y="'+(95 - score*0.75 - 5)+'" text-anchor="middle" font-size="11" font-weight="700" fill="#000">'+score+'%</text>'
+    +'<text x="219" y="110" text-anchor="middle" font-size="11" fill="#5f5f5a">Mastery</text>'
+    +'</svg>';
+}
+
+/* 6 LESSONS: 12 PHOTO BOXES (TEACHING + ACTIVITY) + GRAPH BOX IN EACH LINE */
+var L=[
+  {
+    title: "1. Reading comprehension",
+    topic: "“Quaid on 11th August, 1947”",
+    pct: 85,
+    eng: 92,
+    teachingImg: "images/reading_comprehension_teaching.png",
+    teachingTitle: "Teaching & Explanation",
+    teachingDesc: "Zainab introducing the Quaid chapter with worksheets in hand",
+    activityImg: "images/reading_comprehension_activity.jpg",
+    activityTitle: "Pair Work & Comprehension",
+    activityDesc: "Students completing comprehension questions guided at desks",
+    graphTitle: "Comprehension Results",
+    graphDesc: "85% showed good understanding in written evaluation"
+  },
+  {
+    title: "2. Parts of speech",
+    topic: "“The Word War” sticky-note activity",
+    pct: 90,
+    eng: 95,
+    teachingImg: "images/parts_of_speech_teaching.jpg",
+    teachingTitle: "Whiteboard Teaching",
+    teachingDesc: "Zainab explaining parts of speech and sentence structure on the board",
+    activityImg: "images/parts_of_speech_activity.png",
+    activityTitle: "Word War Competition",
+    activityDesc: "Students collaborating on paper and competitive grammar exercises",
+    graphTitle: "Activity Results",
+    graphDesc: "90% correct identification in boys-vs-girls competition"
+  },
+  {
+    title: "3. Word formation",
+    topic: "Affixes, prefixes, suffixes, roots & base words",
+    pct: 85,
+    eng: 88,
+    teachingImg: "images/lesson3_teaching.jpg",
+    teachingTitle: "Teaching Word Formation",
+    teachingDesc: "Explaining prefixes, suffixes and roots with board examples",
+    activityImg: "images/lesson3_activity.jpg",
+    activityTitle: "Morphological Worksheet",
+    activityDesc: "Students splitting words and creating new lexical forms on paper",
+    graphTitle: "Formative Evaluation",
+    graphDesc: "85% completed morphological breakdown accurately"
+  },
+  {
+    title: "4. Self-introduction as a student",
+    topic: "Worksheet & speaking practice at the dais",
+    pct: 85,
+    eng: 94,
+    teachingImg: "images/lesson4_teaching.jpg",
+    teachingTitle: "Structure & Modeling",
+    teachingDesc: "Teaching greeting, personal background, interests, and goals",
+    activityImg: "images/lesson4_activity.jpg",
+    activityTitle: "Dais Speaking Practice",
+    activityDesc: "Students introducing themselves with confidence at the front",
+    graphTitle: "Speaking Engagement",
+    graphDesc: "High confidence and participation across 50+ students"
+  },
+  {
+    title: "5. Homophones and homonyms",
+    topic: "Lexical relations & boys-vs-girls competition",
+    pct: 90,
+    eng: 96,
+    teachingImg: "images/lesson5_teaching.jpg",
+    teachingTitle: "Teaching Lexical Differences",
+    teachingDesc: "Contrasting sound vs meaning in homophones and homonyms",
+    activityImg: "images/lesson5_activity.jpg",
+    activityTitle: "Competition Activity",
+    activityDesc: "Rapid-fire team quiz testing vocabulary in context",
+    graphTitle: "Competition Accuracy",
+    graphDesc: "90% distinguished homophones and homonyms correctly"
+  },
+  {
+    title: "6. Punctuation and capitalization",
+    topic: "Interactive story & pair work",
+    pct: 88,
+    eng: 90,
+    teachingImg: "images/lesson6_teaching.jpg",
+    teachingTitle: "Interactive Story Teaching",
+    teachingDesc: "Demonstrating meaning shifts using “Let’s eat grandma”",
+    activityImg: "images/lesson6_activity.jpg",
+    activityTitle: "Proofreading in Pairs",
+    activityDesc: "Students punctuating unpunctuated paragraphs on worksheets",
+    graphTitle: "Proofreading Accuracy",
+    graphDesc: "88% accuracy in sentence punctuation and capitalization"
+  }
+];
+
+document.getElementById('lessons').innerHTML = L.map(function(l, i){
+  return '<div class="lesson">'
+    + '<div class="lesson-head">'
+      + '<div>'
+        + '<h3>' + l.title + '</h3>'
+        + '<p>' + l.topic + '</p>'
+      + '</div>'
+      + '<span class="badge-pct">' + l.pct + '% Understanding Rate</span>'
+    + '</div>'
+    + '<div class="ev">'
+      + '<!-- Box 1: Teaching Photo -->'
+      + '<figure class="ev-figure">'
+        + '<div class="ev-img-wrap">'
+          + '<img src="' + l.teachingImg + '" alt="' + l.teachingTitle + '" onerror="handleImgError(this, \'Teaching\', \'' + l.teachingImg + '\', \'' + l.teachingDesc.replace(/'/g, "\\'") + '\')">'
+          + '<span class="fig-tag">Teaching Photo</span>'
+        + '</div>'
+        + '<figcaption>'
+          + '<b>' + l.teachingTitle + '</b>'
+          + '<span>' + l.teachingDesc + '</span>'
+        + '</figcaption>'
+      + '</figure>'
+      + '<!-- Box 2: Activity Photo (students doing paper/test) -->'
+      + '<figure class="ev-figure">'
+        + '<div class="ev-img-wrap">'
+          + '<img src="' + l.activityImg + '" alt="' + l.activityTitle + '" onerror="handleImgError(this, \'Activity\', \'' + l.activityImg + '\', \'' + l.activityDesc.replace(/'/g, "\\'") + '\')">'
+          + '<span class="fig-tag" style="background:var(--yel)">Activity Photo</span>'
+        + '</div>'
+        + '<figcaption>'
+          + '<b>' + l.activityTitle + '</b>'
+          + '<span>' + l.activityDesc + '</span>'
+        + '</figcaption>'
+      + '</figure>'
+      + '<!-- Box 3: Graph Box (preserves graph box in each line) -->'
+      + '<div class="graph-card">'
+        + '<div class="graph-top">'
+          + '<span class="graph-pill">Outcome Graph</span>'
+          + '<span class="graph-score">' + l.pct + '%</span>'
+        + '</div>'
+        + '<div class="graph-viz">'
+          + miniGraph(l.pct, l.eng)
+        + '</div>'
+        + '<div class="graph-meta">'
+          + '<b>' + l.graphTitle + '</b>'
+          + '<span>' + l.graphDesc + '</span>'
+        + '</div>'
+      + '</div>'
+    + '</div>'
+  + '</div>';
+}).join('');
+
+/* OVERALL UNDERSTANDING SUMMARY CHART */
+bars('pct', L.map(function(l){
+  var shortName = l.title.replace(/^\d+\.\s*/, '').split(' ')[0] + ' ' + (l.title.replace(/^\d+\.\s*/, '').split(' ')[1] || '');
+  return [shortName, l.pct];
+}), 100, '%', C);
+
+/* INTERSECTION OBSERVER FOR ACTIVE NAV */
+var links=[].slice.call(document.querySelectorAll('nav a'));
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(e.isIntersecting){
+      links.forEach(function(a){
+        a.classList.toggle('on', a.getAttribute('href')=='#'+e.target.id);
+      });
+    }
+  });
+},{rootMargin:'-35% 0px -55% 0px'});
+document.querySelectorAll('header[id],section[id]').forEach(function(x){io.observe(x)});
+
+document.getElementById('rep').onclick=function(e){
+  e.preventDefault();
+  alert("The full internship report document is available in your folder: Internship_Log_Zainab_Final(1).docx");
+};
+</script>
+</body>
+</html>
