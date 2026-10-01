@@ -29,7 +29,7 @@ nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:99;background:#fff;
 nav .wrap{display:flex;align-items:center;gap:6px;height:72px;overflow-x:auto;white-space:nowrap;max-width:none;padding:0 24px}
 nav b{font-weight:800;font-size:22px;letter-spacing:-.04em;margin-right:auto;display:flex;align-items:center;gap:10px}
 nav b i{font:600 13px Inter,sans-serif;letter-spacing:0;border:1px solid #000;border-radius:99px;padding:3px 12px;background:#fcfcf9}
-nav a{text-decoration:none;font-size:15px;padding:8px 15px;border-radius:99px;font-weight:500}
+nav a{text-decoration:none;font-size:15px;padding:8px 14px;border-radius:99px;font-weight:500}
 nav a:hover{background:var(--bg)}
 nav a.on{background:#000;color:#fff}
 
@@ -55,11 +55,11 @@ nav a.on{background:#000;color:#fff}
 .profile-card{
   background:#fff;
   border:2px solid #000;
-  border-radius:0; /* Explicitly corner-less as requested */
+  border-radius:0; /* Explicitly corner-less */
   padding:22px;
   box-shadow:8px 8px 0 #000;
   width:100%;
-  max-width:430px;
+  max-width:440px;
   display:flex;
   flex-direction:column;
   gap:16px;
@@ -123,23 +123,23 @@ nav a.on{background:#000;color:#fff}
 }
 .profile-inst span.icon{font-size:18px;line-height:1}
 
-/* BIO BOX IN CARD */
+/* BIO BOX IN CARD - USER PROVIDED DESCRIPTION */
 .profile-bio{
   background:#fafaf7;
   border:1px solid #000;
   border-left:4px solid var(--pink);
   border-radius:0; /* Corner-less */
-  padding:14px;
+  padding:15px;
   font-size:14px;
-  line-height:1.55;
+  line-height:1.6;
   color:#111;
 }
 .bio-head{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  margin-bottom:4px;
-  font-size:11.5px;
+  margin-bottom:6px;
+  font-size:12px;
   font-weight:700;
   text-transform:uppercase;
   letter-spacing:.06em;
@@ -159,8 +159,8 @@ nav a.on{background:#000;color:#fff}
   color:#000;
 }
 
-/* FLOATING COINS (SUBTLE BACKGROUND ACCENT) */
-.coin{position:absolute;border-radius:50%;background:var(--pink);border:2px solid #000;display:grid;place-items:center;font:900 italic 44px Inter,sans-serif;box-shadow:8px 5px 0 -2px #e56fcb,8px 5px 0 0 #000;z-index:1;opacity:.4;pointer-events:none}
+/* FLOATING COINS */
+.coin{position:absolute;border-radius:50%;background:var(--pink);border:2px solid #000;display:grid;place-items:center;font:900 italic 44px Inter,sans-serif;box-shadow:8px 5px 0 -2px #e56fcb,8px 5px 0 0 #000;z-index:1;opacity:.35;pointer-events:none}
 .c1{width:90px;height:90px;left:2%;top:50px;transform:rotate(-24deg)}
 .c2{width:110px;height:110px;left:-35px;top:54%}
 .c3{width:80px;height:80px;right:2%;top:40px;transform:rotate(18deg)}
@@ -169,7 +169,7 @@ nav a.on{background:#000;color:#fff}
 /* SECTIONS COMMON */
 section{padding:84px 0;border-top:1px solid #000}
 h2{font:700 clamp(32px,4vw,50px)/1.1 Inter,sans-serif;letter-spacing:-.04em;margin:0 0 10px}
-.sub{color:var(--mut);margin:0 0 36px;max-width:64ch;font-size:18px}
+.sub{color:var(--mut);margin:0 0 36px;max-width:68ch;font-size:18px}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:48px 0}
 .stat{background:#fff;border:1px solid #000;border-radius:18px;padding:24px}
 .stat b{display:block;font:700 46px/1 Inter,sans-serif;letter-spacing:-.04em}
@@ -181,6 +181,57 @@ h2{font:700 clamp(32px,4vw,50px)/1.1 Inter,sans-serif;letter-spacing:-.04em;marg
 .obj{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .o{background:#fff;border:1px solid #000;border-radius:14px;padding:18px 20px;font-size:15.5px}
 .o b{font-weight:700;background:linear-gradient(transparent 60%,var(--pink) 60%)}
+
+/* LESSON PLANS & PEDAGOGY SECTION (NEW) */
+.lp-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.lp-tab-btn{
+  font:600 14px Inter,sans-serif;
+  padding:10px 18px;
+  border-radius:99px;
+  border:1.5px solid #000;
+  background:#fff;
+  color:#000;
+  cursor:pointer;
+  transition:all .15s;
+}
+.lp-tab-btn:hover{background:#f0f0ea}
+.lp-tab-btn.active{background:#000;color:#fff}
+
+.lp-panel{
+  display:none;
+  background:#fff;
+  border:2px solid #000;
+  border-radius:18px;
+  padding:32px;
+  box-shadow:6px 6px 0 #000;
+}
+.lp-panel.active{display:block}
+
+.lp-head{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  padding-bottom:20px;
+  border-bottom:1.5px solid var(--line);
+  margin-bottom:24px;
+}
+.lp-head h3{margin:0 0 6px;font-size:26px;font-weight:700;letter-spacing:-.03em}
+.lp-meta-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.lp-badge{background:var(--pink);border:1px solid #000;padding:3px 12px;border-radius:99px;font-size:12.5px;font-weight:700}
+.lp-date{color:var(--mut);font-size:14px;font-weight:600}
+.lp-class-tag{background:#f4f4f0;border:1px solid #000;padding:3px 10px;border-radius:4px;font-size:12.5px;font-weight:600}
+
+.lp-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.lp-col{display:flex;flex-direction:column;gap:18px}
+.lp-box{background:#fdfdfa;border:1px solid #000;border-radius:12px;padding:20px}
+.lp-box h4{margin:0 0 12px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;font-weight:700;color:#000;display:flex;align-items:center;gap:8px}
+.lp-box ul{margin:0;padding-left:20px}
+.lp-box li{margin-bottom:8px;font-size:14.5px;line-height:1.55;color:#222}
+.lp-box p{margin:0;font-size:14.5px;line-height:1.6;color:#333}
+.method-tags{display:flex;flex-wrap:wrap;gap:8px}
+.method-tag{background:var(--yel);border:1px solid #000;border-radius:99px;padding:4px 12px;font-size:13px;font-weight:600}
 
 /* LOGBOOK */
 #logbook{background:var(--pink)}
@@ -325,6 +376,7 @@ footer{background:#000;color:#fff;padding:40px 0;text-align:center;font-size:15p
   .hero-actions{justify-content:center}
   .hero-stats-row{justify-content:center}
   .profile-card{margin:0 auto}
+  .lp-grid{grid-template-columns:1fr}
   .ev{grid-template-columns:1fr}
   .g2,.g3,.wk,.sup{grid-template-columns:1fr}
   .stats{grid-template-columns:repeat(2,1fr)}
@@ -353,6 +405,7 @@ footer{background:#000;color:#fff;padding:40px 0;text-align:center;font-size:15p
     <a href="#profile">Profile</a>
     <a href="#placement">Placement</a>
     <a href="#objectives">Objectives</a>
+    <a href="#lesson-plans">Lesson Plans</a>
     <a href="#logbook">Logbook</a>
     <a href="#journal">Journal</a>
     <a href="#evidence">Evidence</a>
@@ -368,37 +421,34 @@ footer{background:#000;color:#fff;padding:40px 0;text-align:center;font-size:15p
   <span class="coin c4" aria-hidden="true">Z</span>
 
   <div class="wrap hero-grid">
-    <!-- LEFT COLUMN: TITLE & ACTIONS (Changes 1 & 3 applied) -->
+    <!-- LEFT COLUMN: TITLE & ACTIONS -->
     <div class="hero-intro">
       <span class="chip">Student Internship Portfolio · 2026</span>
-      <!-- Change 1: Internship & Portfolio title mixture -->
       <h1>English Teaching Internship &amp; Portfolio</h1>
       
-      <!-- Change 3: Paragraph text removed per user instructions -->
       <div class="hero-actions">
         <a class="btn" href="#logbook">Read the logbook</a>
-        <a class="btn o" href="#evidence">See classroom evidence</a>
+        <a class="btn o" href="#lesson-plans">View lesson plans</a>
+        <a class="btn o" href="#evidence">Classroom evidence</a>
       </div>
 
       <div class="hero-stats-row">
-        <div class="hero-stat-badge"><b>5</b><span>Lessons taught</span></div>
+        <div class="hero-stat-badge"><b>5</b><span>Lesson plans</span></div>
         <div class="hero-stat-badge"><b>38</b><span>Hours logged</span></div>
         <div class="hero-stat-badge"><b>50+</b><span>Students / class</span></div>
       </div>
     </div>
 
-    <!-- RIGHT COLUMN: BIG VERTICAL CORNER-LESS PROFILE CARD (Change 2 applied) -->
+    <!-- RIGHT COLUMN: BIG VERTICAL CORNER-LESS PROFILE CARD -->
     <div class="profile-card-col">
       <div class="profile-card">
         <div class="profile-img-wrap">
-          <!-- Main profile image: Uses images/profile.jpg with fallback -->
           <img src="images/profile.jpg" alt="Zainab Soomro" class="profile-img" onerror="this.onerror=null;this.src='images/parts_of_speech_teaching.jpg';">
           <span class="img-badge">Teaching Intern</span>
         </div>
 
         <div class="profile-info">
-          <div class="profile-role">Internship 2026 · Applied Linguistics</div>
-          <!-- Big, prominent, bold name so it is 100% visible -->
+          <div class="profile-role">BS English (Applied Linguistics) · Univ. of Sindh</div>
           <h2 class="profile-name">Zainab Soomro</h2>
 
           <div class="profile-inst">
@@ -406,18 +456,19 @@ footer{background:#000;color:#fff;padding:40px 0;text-align:center;font-size:15p
             <span>Government College for Information Technology, Gurunagar, Hyderabad</span>
           </div>
 
-          <!-- User Personal Description: who and what I am -->
+          <!-- USER-PROVIDED DESCRIPTION: About Me & Teaching Philosophy -->
           <div class="profile-bio" id="user-description-box">
             <div class="bio-head">
               <span>About Me &amp; Teaching Philosophy</span>
             </div>
-            <p>Applied Linguistics student and English language teaching intern passionate about communicative methodology, activity-based pedagogy, and student engagement in large co-educational classrooms.</p>
+            <p>I am Zainab Soomro, an undergraduate student of BS English, specializing in Applied Linguistics at the University of Sindh, Jamshoro. My academic interests focus on English language learning, teaching, communication, and the practical application of linguistic knowledge. Through my internship, I have had the opportunity to connect my academic learning with classroom practice and gain a deeper understanding of teaching and student learning. This experience has strengthened my interest in English language education and supported my development as a future language educator.</p>
           </div>
 
           <div class="profile-meta-tags">
+            <span class="p-tag">University of Sindh, Jamshoro</span>
+            <span class="p-tag">GCIT Hyderabad</span>
             <span class="p-tag">First Year Class (50+)</span>
             <span class="p-tag">Communicative ELT</span>
-            <span class="p-tag">GCIT Hyderabad</span>
           </div>
         </div>
       </div>
@@ -451,6 +502,305 @@ footer{background:#000;color:#fff;padding:40px 0;text-align:center;font-size:15p
     <h2>Internship objectives</h2>
     <p class="sub">What I set out to learn and practise.</p>
     <div class="obj" id="objs"></div>
+  </div>
+</section>
+
+<!-- NEW SECTION: LESSON PLANS & PEDAGOGY -->
+<section id="lesson-plans">
+  <div class="wrap">
+    <h2>Curriculum lesson plans</h2>
+    <p class="sub">Detailed instructional plans designed and executed during the internship, linking Applied Linguistics theory to classroom pedagogy.</p>
+    
+    <div class="lp-tabs" id="lpTabs">
+      <button class="lp-tab-btn active" data-target="plan-1">Lesson 1: Quaid on 11th August</button>
+      <button class="lp-tab-btn" data-target="plan-2">Lesson 2: Parts of Speech (The Word War)</button>
+      <button class="lp-tab-btn" data-target="plan-3">Lesson 3: Word Formation &amp; Self-Introduction</button>
+      <button class="lp-tab-btn" data-target="plan-4">Lesson 4: Lexical Relations (Homonyms &amp; Homophones)</button>
+      <button class="lp-tab-btn" data-target="plan-5">Lesson 5: Punctuation &amp; Capitalization</button>
+    </div>
+
+    <!-- PLAN 1 -->
+    <div class="lp-panel active" id="plan-1">
+      <div class="lp-head">
+        <div class="lp-title-group">
+          <h3>Lesson Plan 1: Quaid on 11th August, 1947</h3>
+          <div class="lp-meta-row">
+            <span class="lp-badge">Reading Comprehension</span>
+            <span class="lp-date">📅 16-09-2026</span>
+            <span class="lp-class-tag">Class: First Year (Co-ed 50+)</span>
+          </div>
+        </div>
+      </div>
+      <div class="lp-grid">
+        <div class="lp-col">
+          <div class="lp-box">
+            <h4>🎯 Learning Objectives</h4>
+            <ul>
+              <li>To develop students’ reading comprehension through the prescribed textbook chapter.</li>
+              <li>To improve students’ understanding of vocabulary, phrases, idioms, synonyms, and antonyms.</li>
+              <li>To develop students’ ability to answer comprehension questions and MCQs.</li>
+              <li>To encourage students to identify the main message of the chapter.</li>
+              <li>To promote participation through pair work and whole-class activities.</li>
+            </ul>
+          </div>
+          <div class="lp-box">
+            <h4>✨ Learning Outcomes</h4>
+            <ul>
+              <li>Understand the main ideas of the chapter.</li>
+              <li>Identify and explain unfamiliar vocabulary and expressions.</li>
+              <li>Distinguish between synonyms and antonyms.</li>
+              <li>Answer comprehension questions and MCQs based on the text.</li>
+              <li>Identify the main message of the chapter.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="lp-col">
+          <div class="lp-box">
+            <h4>👩‍🏫 Teaching Methods</h4>
+            <div class="method-tags">
+              <span class="method-tag">Reading &amp; Explanation</span>
+              <span class="method-tag">Questioning</span>
+              <span class="method-tag">Pair Work</span>
+              <span class="method-tag">Activity-Based Learning</span>
+            </div>
+          </div>
+          <div class="lp-box">
+            <h4>📝 Teaching / Learning Activities</h4>
+            <p>Reading and explanation of the chapter, followed by word meanings, phrases and idioms, synonyms and antonyms, MCQs, short questions, pair work, and whole-class answer checking.</p>
+          </div>
+          <div class="lp-box">
+            <h4>📊 Assessment Strategies</h4>
+            <p>Oral questioning, MCQs, short questions, vocabulary exercises, and checking students’ answers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLAN 2 -->
+    <div class="lp-panel" id="plan-2">
+      <div class="lp-head">
+        <div class="lp-title-group">
+          <h3>Lesson Plan 2: Parts of Speech through The Word War</h3>
+          <div class="lp-meta-row">
+            <span class="lp-badge">Grammar &amp; Morphology</span>
+            <span class="lp-date">📅 18-09-2026</span>
+            <span class="lp-class-tag">Class: First Year (Co-ed 50+)</span>
+          </div>
+        </div>
+      </div>
+      <div class="lp-grid">
+        <div class="lp-col">
+          <div class="lp-box">
+            <h4>🎯 Learning Objectives</h4>
+            <ul>
+              <li>To introduce students to the eight parts of speech.</li>
+              <li>To help students recognize parts of speech in a meaningful text.</li>
+              <li>To develop students’ ability to identify examples of different parts of speech.</li>
+              <li>To encourage active participation through an interactive classroom activity.</li>
+            </ul>
+          </div>
+          <div class="lp-box">
+            <h4>✨ Learning Outcomes</h4>
+            <ul>
+              <li>Name the eight parts of speech.</li>
+              <li>Identify different parts of speech in a text.</li>
+              <li>Provide examples of parts of speech from the given story.</li>
+              <li>Apply their understanding through an interactive activity.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="lp-col">
+          <div class="lp-box">
+            <h4>👩‍🏫 Teaching Methods</h4>
+            <div class="method-tags">
+              <span class="method-tag">Contextual Teaching</span>
+              <span class="method-tag">Visual Learning</span>
+              <span class="method-tag">Activity-Based Learning</span>
+              <span class="method-tag">Collaborative Learning</span>
+            </div>
+          </div>
+          <div class="lp-box">
+            <h4>📝 Teaching / Learning Activities</h4>
+            <p>Introduction of the Dawn story “The Word War” and explanation of the eight parts of speech using separate charts. Students used sticky notes to find two examples of each part of speech from the story and participated in a boys-versus-girls activity.</p>
+          </div>
+          <div class="lp-box">
+            <h4>📊 Assessment Strategies</h4>
+            <p>Students’ identification of parts of speech from the story and their responses during the competitive activity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLAN 3 -->
+    <div class="lp-panel" id="plan-3">
+      <div class="lp-head">
+        <div class="lp-title-group">
+          <h3>Lesson Plan 3: Word Formation and Self-Introduction</h3>
+          <div class="lp-meta-row">
+            <span class="lp-badge">Morphology &amp; Speaking</span>
+            <span class="lp-date">📅 23-09-2026</span>
+            <span class="lp-class-tag">Class: First Year (Co-ed 50+)</span>
+          </div>
+        </div>
+      </div>
+      <div class="lp-grid">
+        <div class="lp-col">
+          <div class="lp-box">
+            <h4>🎯 Learning Objectives</h4>
+            <ul>
+              <li>To introduce students to basic concepts of word formation.</li>
+              <li>To develop students’ ability to identify the components of words.</li>
+              <li>To provide practice in forming words using prefixes and suffixes.</li>
+              <li>To introduce the main components of a student self-introduction.</li>
+              <li>To develop students’ confidence in speaking about themselves.</li>
+            </ul>
+          </div>
+          <div class="lp-box">
+            <h4>✨ Learning Outcomes</h4>
+            <ul>
+              <li>Identify affixes, prefixes, suffixes, roots, and base words.</li>
+              <li>Break words into their meaningful components.</li>
+              <li>Form words using prefixes and suffixes.</li>
+              <li>Organize personal information into a short self-introduction.</li>
+              <li>Deliver a basic self-introduction orally.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="lp-col">
+          <div class="lp-box">
+            <h4>👩‍🏫 Teaching Methods</h4>
+            <div class="method-tags">
+              <span class="method-tag">Explicit Explanation</span>
+              <span class="method-tag">Guided Practice</span>
+              <span class="method-tag">Written Practice</span>
+              <span class="method-tag">Interactive Speaking</span>
+            </div>
+          </div>
+          <div class="lp-box">
+            <h4>📝 Teaching / Learning Activities</h4>
+            <p>Explanation of affixes, prefixes, suffixes, roots, and base words using board work and examples. Students practised breaking words into components and formed words using prefixes and suffixes. The lesson then moved to self-introduction, where students completed a worksheet, organized their information into paragraph form, and practised speaking.</p>
+          </div>
+          <div class="lp-box">
+            <h4>📊 Assessment Strategies</h4>
+            <p>Word-formation activities, word breakdown practice, worksheet completion, and oral self-introduction.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLAN 4 -->
+    <div class="lp-panel" id="plan-4">
+      <div class="lp-head">
+        <div class="lp-title-group">
+          <h3>Lesson Plan 4: Lexical Relations: Homonymy, Homonyms, Homophony, &amp; Homophones</h3>
+          <div class="lp-meta-row">
+            <span class="lp-badge">Semantics &amp; Vocabulary</span>
+            <span class="lp-date">📅 25-09-2026</span>
+            <span class="lp-class-tag">Class: First Year (Co-ed 50+)</span>
+          </div>
+        </div>
+      </div>
+      <div class="lp-grid">
+        <div class="lp-col">
+          <div class="lp-box">
+            <h4>🎯 Learning Objectives</h4>
+            <ul>
+              <li>To check students’ recall of previously taught concepts.</li>
+              <li>To provide students with opportunities to practise self-introduction.</li>
+              <li>To introduce lexical relations in the context of homonyms and homophones.</li>
+              <li>To help students distinguish between homonyms and homophones.</li>
+              <li>To develop students’ ability to apply these concepts in sentences.</li>
+            </ul>
+          </div>
+          <div class="lp-box">
+            <h4>✨ Learning Outcomes</h4>
+            <ul>
+              <li>Recall information from previously taught topics.</li>
+              <li>Give a self-introduction using the previously taught components.</li>
+              <li>Explain the basic concepts of homonymy, homonyms, homophony, and homophones.</li>
+              <li>Identify homonyms and homophones in given examples.</li>
+              <li>Select the appropriate word according to sentence context.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="lp-col">
+          <div class="lp-box">
+            <h4>👩‍🏫 Teaching Methods</h4>
+            <div class="method-tags">
+              <span class="method-tag">Questioning</span>
+              <span class="method-tag">Explanation via Examples</span>
+              <span class="method-tag">Guided Practice</span>
+              <span class="method-tag">Competitive Learning</span>
+            </div>
+          </div>
+          <div class="lp-box">
+            <h4>📝 Teaching / Learning Activities</h4>
+            <p>Questions from previous topics were asked to check students’ recall. Students were randomly invited to the dais to give a self-introduction. Lexical relations were then introduced in the context of homonyms and homophones. Examples were provided, followed by identification and sentence-completion activities and a boys-versus-girls speed competition.</p>
+          </div>
+          <div class="lp-box">
+            <h4>📊 Assessment Strategies</h4>
+            <p>Questioning, oral responses, identification activities, sentence completion, and classroom speed competition.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLAN 5 -->
+    <div class="lp-panel" id="plan-5">
+      <div class="lp-head">
+        <div class="lp-title-group">
+          <h3>Lesson Plan 5: Punctuation and Capitalization</h3>
+          <div class="lp-meta-row">
+            <span class="lp-badge">Mechanics of Writing</span>
+            <span class="lp-date">📅 30-09-2026</span>
+            <span class="lp-class-tag">Class: First Year (Co-ed 50+)</span>
+          </div>
+        </div>
+      </div>
+      <div class="lp-grid">
+        <div class="lp-col">
+          <div class="lp-box">
+            <h4>🎯 Learning Objectives</h4>
+            <ul>
+              <li>To develop students’ awareness of the importance of punctuation in written communication.</li>
+              <li>To introduce the appropriate use of common punctuation marks.</li>
+              <li>To improve students’ ability to apply punctuation and capitalization in writing.</li>
+              <li>To develop students’ sentence correction and editing skills.</li>
+            </ul>
+          </div>
+          <div class="lp-box">
+            <h4>✨ Learning Outcomes</h4>
+            <ul>
+              <li>Identify common punctuation marks and their uses.</li>
+              <li>Apply appropriate punctuation to sentences and paragraphs.</li>
+              <li>Use capitalization correctly in written work.</li>
+              <li>Identify and correct punctuation errors.</li>
+              <li>Rewrite a paragraph using appropriate punctuation and capitalization.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="lp-col">
+          <div class="lp-box">
+            <h4>👩‍🏫 Teaching Methods</h4>
+            <div class="method-tags">
+              <span class="method-tag">Interactive Storytelling</span>
+              <span class="method-tag">Pair Work</span>
+              <span class="method-tag">Guided Practice</span>
+              <span class="method-tag">Written Practice</span>
+            </div>
+          </div>
+          <div class="lp-box">
+            <h4>📝 Teaching / Learning Activities</h4>
+            <p>The lesson began with an interactive story about a grandmother and a girl. The girl wrote <strong>“Let’s eat grandma”</strong> without punctuation, which was used to demonstrate how punctuation can change meaning. Students then worked in pairs to add punctuation to given sentences. The main lesson focused on the <strong>full stop, question mark, exclamation mark, comma, colon, and semicolon</strong>, along with capitalization. Students rewrote a paragraph without punctuation by adding the appropriate punctuation marks. In the second activity, they corrected sentences by fixing punctuation errors.</p>
+          </div>
+          <div class="lp-box">
+            <h4>📊 Assessment Strategies</h4>
+            <p>Punctuation and capitalization exercises, editing, and proofreading written paragraphs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -570,6 +920,17 @@ var O=[
 ];
 document.getElementById('objs').innerHTML=O.map(function(x){return '<div class="o">'+x+'</div>'}).join('');
 
+/* LESSON PLAN TABS LOGIC */
+document.querySelectorAll('.lp-tab-btn').forEach(function(btn){
+  btn.onclick = function(){
+    document.querySelectorAll('.lp-tab-btn').forEach(function(b){ b.classList.remove('active'); });
+    document.querySelectorAll('.lp-panel').forEach(function(p){ p.classList.remove('active'); });
+    btn.classList.add('active');
+    var target = document.getElementById(btn.getAttribute('data-target'));
+    if(target) target.classList.add('active');
+  };
+});
+
 /* LOGBOOK ENTRIES DATA */
 var D=[
   [1,'4 Sep · Fri','Internship orientation',1,0,'Attended an orientation on the internship process, placement selection, required tasks, evidence collection and report submission. Instructed to apply teaching methods and linguistic theories in real settings.','Communication, understanding of internship requirements, teaching-method awareness, documentation.'],
@@ -631,7 +992,7 @@ function handleImgError(img, type, filename, note){
   img.src='data:image/svg+xml;utf8,'+encodeURIComponent(s);
 }
 
-/* MINI SVG GRAPH GENERATOR FOR EACH LESSON ROW */
+/* MINI SVG GRAPH GENERATOR FOR EACH LESSON ROW (100 - % score) */
 function miniGraph(pct, eng){
   var score = pct || 85;
   var active = eng || 90;
@@ -641,8 +1002,8 @@ function miniGraph(pct, eng){
     +'<line x1="12" y1="15" x2="268" y2="15" stroke="#e8e8e0" stroke-width="1" stroke-dasharray="3,3"/>'
     +'<!-- Class Total Bar -->'
     +'<rect x="36" y="20" width="46" height="75" rx="3" fill="#f4f4f0" stroke="#000" stroke-width="1.5"/>'
-    +'<text x="59" y="14" text-anchor="middle" font-size="11" font-weight="700" fill="#000">50+</text>'
-    +'<text x="59" y="110" text-anchor="middle" font-size="11" fill="#5f5f5a">Class</text>'
+    +'<text x="59" y="14" text-anchor="middle" font-size="11" font-weight="700" fill="#000">100%</text>'
+    +'<text x="59" y="110" text-anchor="middle" font-size="11" fill="#5f5f5a">Benchmark</text>'
     +'<!-- Engagement Bar -->'
     +'<rect x="116" y="'+(95 - active*0.75)+'" width="46" height="'+(active*0.75)+'" rx="3" fill="#ffc900" stroke="#000" stroke-width="1.5"/>'
     +'<text x="139" y="'+(95 - active*0.75 - 5)+'" text-anchor="middle" font-size="11" font-weight="700" fill="#000">'+active+'%</text>'
@@ -689,28 +1050,28 @@ var L=[
     topic: "Affixes, prefixes, suffixes, roots & base words",
     pct: 85,
     eng: 88,
-    teachingImg: "images/lesson3_teaching.jpg",
+    teachingImg: "images/word_formation_teaching.jpg",
     teachingTitle: "Teaching Word Formation",
-    teachingDesc: "Explaining prefixes, suffixes and roots with board examples",
-    activityImg: "images/lesson3_activity.jpg",
-    activityTitle: "Morphological Worksheet",
-    activityDesc: "Students splitting words and creating new lexical forms on paper",
+    teachingDesc: "Zainab explaining affixes, roots and word derivation at the board",
+    activityImg: "images/word_formation_activity.jpg",
+    activityTitle: "Morphological Worksheet Practice",
+    activityDesc: "Students engaged in word derivation activities and exercises in class",
     graphTitle: "Formative Evaluation",
-    graphDesc: "85% completed morphological breakdown accurately"
+    graphDesc: "Graph 100-85 · 85% completed morphological breakdown accurately"
   },
   {
     title: "4. Self-introduction as a student",
     topic: "Worksheet & speaking practice at the dais",
-    pct: 85,
+    pct: 90,
     eng: 94,
-    teachingImg: "images/lesson4_teaching.jpg",
-    teachingTitle: "Structure & Modeling",
-    teachingDesc: "Teaching greeting, personal background, interests, and goals",
-    activityImg: "images/lesson4_activity.jpg",
-    activityTitle: "Dais Speaking Practice",
-    activityDesc: "Students introducing themselves with confidence at the front",
+    teachingImg: "images/self_introduction_teaching.jpg",
+    teachingTitle: "Instruction & Dais Modeling",
+    teachingDesc: "Zainab leading speaking presentation and self-introduction structure",
+    activityImg: "images/self_introduction_worksheet.jpg",
+    activityTitle: "Student Self-Introduction Worksheets",
+    activityDesc: "Completed written worksheets (greeting, name, grade, interests, and future goals)",
     graphTitle: "Speaking Engagement",
-    graphDesc: "High confidence and participation across 50+ students"
+    graphDesc: "Graph 100-90 · 90% confidence and active participation across 50+ students"
   },
   {
     title: "5. Homophones and homonyms",
@@ -763,7 +1124,7 @@ document.getElementById('lessons').innerHTML = L.map(function(l, i){
           + '<span>' + l.teachingDesc + '</span>'
         + '</figcaption>'
       + '</figure>'
-      + '<!-- Box 2: Activity Photo (students doing paper/test) -->'
+      + '<!-- Box 2: Activity Photo (students doing paper/test/worksheet) -->'
       + '<figure class="ev-figure">'
         + '<div class="ev-img-wrap">'
           + '<img src="' + l.activityImg + '" alt="' + l.activityTitle + '" onerror="handleImgError(this, \'Activity\', \'' + l.activityImg + '\', \'' + l.activityDesc.replace(/'/g, "\\'") + '\')">'
