@@ -367,7 +367,86 @@ details[open] summary{border-bottom:1px solid #000}
 .sup{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .sig{height:90px;border:1px dashed #000;border-radius:12px;display:grid;place-items:center;color:var(--mut);font-size:15px;margin-top:16px}
 .rep li{margin:6px 0}
-footer{background:#000;color:#fff;padding:40px 0;text-align:center;font-size:15px}
+/* VERIFIED DOCUMENTS & PDF BOXES */
+.doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.doc-card{
+  background:#fff;
+  border:2px solid #000;
+  border-radius:16px;
+  padding:26px;
+  box-shadow:5px 5px 0 #000;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  gap:18px;
+  transition:transform .15s,box-shadow .15s;
+}
+.doc-card:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--pink)}
+.doc-top{display:flex;align-items:flex-start;gap:16px}
+.doc-ic{
+  width:56px;height:56px;border-radius:12px;
+  background:var(--pink);border:1.5px solid #000;
+  display:grid;place-items:center;font-size:26px;flex:none;
+}
+.doc-meta h3{margin:0 0 6px;font-size:20px;font-weight:700;letter-spacing:-.02em}
+.doc-meta p{margin:0;color:var(--mut);font-size:14.5px;line-height:1.5}
+.doc-preview-box{
+  background:#f9f9f5;border:1px solid #000;border-radius:8px;
+  padding:14px;font-size:13.5px;line-height:1.55;color:#333;
+}
+.doc-preview-box b{display:block;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:#000;margin-bottom:4px}
+.doc-actions{display:flex;flex-wrap:wrap;gap:10px}
+.doc-btn-view{
+  flex:1;background:#000;color:#fff;border:1px solid #000;
+  padding:12px 18px;border-radius:6px;font-weight:600;font-size:14px;
+  cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  transition:transform .15s,box-shadow .15s;
+}
+.doc-btn-view:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--yel)}
+.doc-btn-dl{
+  background:#fff;color:#000;border:1px solid #000;
+  padding:12px 18px;border-radius:6px;font-weight:600;font-size:14px;
+  text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  transition:transform .15s,box-shadow .15s;
+}
+.doc-btn-dl:hover{background:var(--yel);transform:translate(-2px,-2px);box-shadow:3px 3px 0 #000}
+
+/* BIG BOX MODAL VIEWER */
+.modal-overlay{
+  position:fixed;top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,.65);backdrop-filter:blur(4px);
+  z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;
+}
+.modal-overlay.open{display:flex}
+.modal-box{
+  background:#fff;border:2px solid #000;border-radius:18px;
+  box-shadow:10px 10px 0 #000;width:100%;max-width:980px;
+  max-height:90vh;display:flex;flex-direction:column;overflow:hidden;
+  animation:popIn .2s ease-out;
+}
+@keyframes popIn{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+.modal-head{
+  padding:18px 24px;border-bottom:2px solid #000;
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--bg);gap:12px;
+}
+.modal-head h3{margin:0;font-size:20px;font-weight:800;letter-spacing:-.02em}
+.modal-close-btn{
+  background:#fff;border:1.5px solid #000;border-radius:8px;
+  width:36px;height:36px;cursor:pointer;font-size:18px;font-weight:700;
+  display:grid;place-items:center;transition:background .15s;
+}
+.modal-close-btn:hover{background:var(--pink)}
+.modal-body{padding:26px;overflow-y:auto;font-size:14.5px;line-height:1.6}
+
+/* MODAL TABLE STYLING */
+.log-table-wrap{overflow-x:auto;border:1.5px solid #000;border-radius:10px}
+.log-table{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;text-align:left}
+.log-table th{background:#000;color:#fff;padding:12px 14px;font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.04em}
+.log-table td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.log-table tr:last-child td{border-bottom:none}
+.log-table tr:hover td{background:#fafaf6}
+.log-badge{background:var(--yel);border:1px solid #000;padding:2px 8px;border-radius:4px;font-weight:700;font-size:12px}
 
 /* RESPONSIVE BREAKPOINTS */
 @media (max-width:960px){
@@ -409,6 +488,7 @@ footer{background:#000;color:#fff;padding:40px 0;text-align:center;font-size:15p
     <a href="#logbook">Logbook</a>
     <a href="#journal">Journal</a>
     <a href="#evidence">Evidence</a>
+    <a href="#documents">Documents</a>
     <a href="#supervisor">Evaluation</a>
     <a href="#report">Report</a>
   </div>
@@ -861,6 +941,87 @@ footer{background:#000;color:#fff;padding:40px 0;text-align:center;font-size:15p
   </div>
 </section>
 
+<!-- VERIFIED DOCUMENTS SECTION -->
+<section id="documents">
+  <div class="wrap">
+    <h2>Verified internship documents &amp; PDFs</h2>
+    <p class="sub">Official documentation verified and submitted for the English language teaching internship at Government College for Information Technology, Hyderabad. Click any document to open it in full view.</p>
+    
+    <div class="doc-grid">
+      <!-- CUTE BOX 1: INTERNSHIP LOG -->
+      <div class="doc-card">
+        <div>
+          <div class="doc-top">
+            <div class="doc-ic">📑</div>
+            <div class="doc-meta">
+              <span class="log-badge" style="background:var(--pink)">Official Document · 38 Hours</span>
+              <h3 style="margin-top:6px">Complete Internship Logbook (Daily Logs)</h3>
+              <p>Government College for Information Technology, Hyderabad</p>
+            </div>
+          </div>
+          <div class="doc-preview-box" style="margin-top:16px">
+            <b>Summary of Verified Log:</b>
+            Official 9-day logbook from 4 Sep to 30 Sep 2026. Records 38 total verified hours with complete daily activity descriptions, skills developed, and breakdown (teaching, activity development, assessment).
+          </div>
+        </div>
+        <div class="doc-actions">
+          <button class="doc-btn-view" onclick="openDocModal('log')">
+            <span>📖</span> Read Full Document (Big Box)
+          </button>
+          <a class="doc-btn-dl" href="Internship_Log_Zainab_Final.pdf" download target="_blank">
+            <span>⬇️</span> Download PDF
+          </a>
+        </div>
+      </div>
+
+      <!-- CUTE BOX 2: REFLECTIVE JOURNAL -->
+      <div class="doc-card">
+        <div>
+          <div class="doc-top">
+            <div class="doc-ic" style="background:var(--yel)">📝</div>
+            <div class="doc-meta">
+              <span class="log-badge">Official Document · Reflections</span>
+              <h3 style="margin-top:6px">Weekly Reflective Journal &amp; Analysis</h3>
+              <p>BS English (Applied Linguistics) · Supervised by Asst. Prof. Areej Ijlal</p>
+            </div>
+          </div>
+          <div class="doc-preview-box" style="margin-top:16px">
+            <b>Summary of Reflective Work:</b>
+            Structured weekly reflective analysis detailing theoretical connections, macro-teaching evaluations, student understanding rates (85–90%), and adaptive classroom management.
+          </div>
+        </div>
+        <div class="doc-actions">
+          <button class="doc-btn-view" onclick="openDocModal('journal')">
+            <span>📖</span> Read Full Document (Big Box)
+          </button>
+          <a class="doc-btn-dl" href="Internship_Reflective_Log_Zainab_Final.pdf" download target="_blank">
+            <span>⬇️</span> Download PDF
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BIG BOX MODAL VIEWER -->
+<div class="modal-overlay" id="docModalOverlay" onclick="if(event.target===this) closeDocModal()">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div>
+        <h3 id="modalTitle">Official Document Viewer</h3>
+        <small style="color:var(--mut)" id="modalSubtitle">Verified Record · Government College for Information Technology, Hyderabad</small>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <a id="modalDlBtn" href="#" download class="btn" style="padding:8px 14px;font-size:13px;border-radius:6px;text-decoration:none">⬇️ Download PDF</a>
+        <button class="modal-close-btn" onclick="closeDocModal()" title="Close (Esc)">✕</button>
+      </div>
+    </div>
+    <div class="modal-body" id="modalBody">
+      <!-- Dynamic Document Content -->
+    </div>
+  </div>
+</div>
+
 <section id="supervisor">
   <div class="wrap">
     <h2>Supervisor evaluation</h2>
@@ -1174,8 +1335,99 @@ document.querySelectorAll('header[id],section[id]').forEach(function(x){io.obser
 
 document.getElementById('rep').onclick=function(e){
   e.preventDefault();
-  alert("The full internship report document is available in your folder: Internship_Log_Zainab_Final(1).docx");
+  openDocModal('log');
 };
+
+/* DOCUMENT MODAL LOGIC (BIG BOX) */
+function openDocModal(type){
+  var overlay = document.getElementById('docModalOverlay');
+  var title = document.getElementById('modalTitle');
+  var subtitle = document.getElementById('modalSubtitle');
+  var dlBtn = document.getElementById('modalDlBtn');
+  var body = document.getElementById('modalBody');
+
+  if(type === 'log'){
+    title.innerText = "Official Internship Log (38 Hours Verified)";
+    subtitle.innerText = "Government College for Information Technology, Hyderabad · Class of 50+ Students";
+    dlBtn.href = "Internship_Log_Zainab_Final.pdf";
+    dlBtn.setAttribute('download', 'Internship_Log_Zainab_Final.pdf');
+
+    body.innerHTML = '<div style="margin-bottom:20px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;background:#fdfdf9;border:1.5px solid #000;border-radius:10px;padding:14px 18px">'
+      + '<div><span class="log-badge" style="background:var(--pink)">Official Record</span> <b style="margin-left:8px;font-size:15px">Total Hours Logged: 38 Hours</b></div>'
+      + '<div style="font-size:13.5px;color:var(--mut)">Supervised by: <b>Assistant Professor Areej Ijlal</b></div>'
+      + '</div>'
+      + '<div class="log-table-wrap">'
+      + '<table class="log-table">'
+      + '<thead><tr>'
+      + '<th style="width:50px">Day</th>'
+      + '<th style="width:130px">Date</th>'
+      + '<th>Activities Performed</th>'
+      + '<th>Skills Developed</th>'
+      + '<th style="width:110px">Hours Logged</th>'
+      + '<th style="width:100px">Verification</th>'
+      + '</tr></thead>'
+      + '<tbody>'
+      + '<tr><td><b>1</b></td><td>4-9-2026<br><small style="color:var(--mut)">Friday</small></td><td>Attended an internship orientation session and learned about the internship process, placement selection, required tasks, evidence collection, and report submission. Instructed to apply teaching methods and linguistic theories in real-life settings.</td><td>Communication skills, understanding of internship requirements, teaching-method awareness, and documentation skills.</td><td><b>01 h</b></td><td><span class="log-badge" style="background:#e8fdf5">Verified</span></td></tr>'
+      + '<tr><td><b>2</b></td><td>10-9-2026<br><small style="color:var(--mut)">Thursday</small></td><td>Attended the internship class and received updates regarding the revised internship hours. Clarified internship-related queries with Ma’am Bakhtawar.</td><td>Communication and understanding of internship hours.</td><td><b>01 h</b></td><td><span class="log-badge" style="background:#e8fdf5">Verified</span></td></tr>'
+      + '<tr><td><b>3</b></td><td>16-9-2026<br><small style="color:var(--mut)">Wednesday</small></td><td>Conducted a reading comprehension task from the prescribed First Year English textbook chapter “Quaid on 11th August” through reading and explanation, followed by word meanings, phrases and idioms, synonyms and antonyms, multiple choice questions, and comprehension questions. Guided students through pair work and checked their answers collectively.</td><td>Reading and communication skills, questioning and assessment skills. Improved student interaction and macro-teaching skills in a class of 50+ students.</td><td><b>05 h</b><br><small style="color:var(--mut)">Teaching</small></td><td><span class="log-badge" style="background:#e8fdf5">Verified</span></td></tr>'
+      + '<tr><td><b>4</b></td><td>17-9-2026<br><small style="color:var(--mut)">Thursday</small></td><td>Attended the internship class. Clarified internship-related queries with Ms. Bakhtawar.</td><td>Communication skills, active listening and understanding of internship procedures.</td><td><b>01 h</b></td><td><span class="log-badge" style="background:#e8fdf5">Verified</span></td></tr>'
+      + '<tr><td><b>5</b></td><td>18-9-2026<br><small style="color:var(--mut)">Friday</small></td><td>Introduced the Dawn story “The Word War”, highlighting vocabulary in real-life contexts. Gave an overview of the eight parts of speech through colourful charts. Students used sticky notes to find two examples of each part of speech in a boys-versus-girls competition.<br><br><b>Breakdown:</b> Teaching 03 h, Task Preparation 03 h, Assessment 01 h.</td><td>Activity-based teaching, student engagement, classroom management, and macro-teaching skills through contextual learning.</td><td><b>07 h total</b><br><small style="color:var(--mut)">Teaching 3h<br>Prep 3h<br>Assess 1h</small></td><td><span class="log-badge" style="background:#e8fdf5">Verified</span></td></tr>'
+      + '<tr><td><b>6</b></td><td>23-9-2026<br><small style="color:var(--mut)">Wednesday</small></td><td>Taught “Word Formation” (affixes, prefixes, suffixes, roots, base words). Guided word-breakdown practice and formed new words. Introduced components of self-introduction with a fill-in worksheet and dais speaking practice.<br><br><b>Breakdown:</b> Teaching 05 h, Task Preparation 02 h, Assessment 01 h.</td><td>Morphological awareness, confidence in speaking, vocabulary building, word building, sentence construction, and presentation fluency.</td><td><b>08 h total</b><br><small style="color:var(--mut)">Teaching 5h<br>Prep 2h<br>Assess 1h</small></td><td><span class="log-badge" style="background:#e8fdf5">Verified</span></td></tr>'
+      + '<tr><td><b>7</b></td><td>24-9-2026<br><small style="color:var(--mut)">Thursday</small></td><td>Attended the internship class. Ma’am Palwasha reviewed workplace selection and smooth activity management. Clarified queries and received feedback on progress.</td><td>Active listening, clarification, organisational, time-management, problem-solving, and feedback-receiving skills.</td><td><b>01 h</b></td><td><span class="log-badge" style="background:#e8fdf5">Verified</span></td></tr>'
+      + '<tr><td><b>8</b></td><td>25-9-2026<br><small style="color:var(--mut)">Friday</small></td><td>Recalled previous topics with oral questions and dais self-introductions. Introduced homophony and homonymy with student examples, identification activities, sentence completion, and a boys-vs-girls speed competition.<br><br><b>Breakdown:</b> Teaching 03 h, Task Preparation 02 h, Assessment 01 h.</td><td>Lexical awareness, concept differentiation, critical thinking, vocabulary recognition, contextual reasoning, and speaking fluency.</td><td><b>06 h total</b><br><small style="color:var(--mut)">Teaching 3h<br>Prep 2h<br>Assess 1h</small></td><td><span class="log-badge" style="background:#e8fdf5">Verified</span></td></tr>'
+      + '<tr><td><b>9</b></td><td>30-9-2026<br><small style="color:var(--mut)">Wednesday</small></td><td>Introduced punctuation with the story “Let’s eat grandma” demonstrating how punctuation shifts meaning. Guided pair work, explained 6 major marks and capitalization. Students rewrote unpunctuated paragraphs and corrected sentences.<br><br><b>Breakdown:</b> Teaching 05 h, Task Preparation 02 h, Assessment 01 h.</td><td>Punctuation, capitalization, sentence editing, proofreading skills, and contextual linguistic instruction.</td><td><b>08 h total</b><br><small style="color:var(--mut)">Teaching 5h<br>Prep 2h<br>Assess 1h</small></td><td><span class="log-badge" style="background:#e8fdf5">Verified</span></td></tr>'
+      + '</tbody>'
+      + '<tfoot><tr><th colspan="4" style="text-align:right">Total Certified Internship Hours:</th><th colspan="2" style="font-size:16px;background:var(--pink);color:#000">38 Hours</th></tr></tfoot>'
+      + '</table>'
+      + '</div>'
+      + '<div style="margin-top:20px;padding:16px;background:#fcfcf9;border:1.5px solid #000;border-radius:10px;font-size:13.5px">'
+      + '<b>Institutional Verification:</b> Government College for Information Technology, Gurunagar, Hyderabad · Placement Supervisor: <b>Assistant Professor Areej Ijlal</b> · Principal: <b>Prof. Nawab Ali Rahoo</b>.'
+      + '</div>';
+  } else if(type === 'journal'){
+    title.innerText = "Weekly Reflective Journal (Applied Linguistics Analysis)";
+    subtitle.innerText = "BS English (Applied Linguistics), University of Sindh · Supervised by Asst. Prof. Areej Ijlal";
+    dlBtn.href = "Internship_Reflective_Log_Zainab_Final.pdf";
+    dlBtn.setAttribute('download', 'Internship_Reflective_Log_Zainab_Final.pdf');
+
+    body.innerHTML = '<div style="display:flex;flex-direction:column;gap:24px">'
+      + '<article class="card" style="border:1.5px solid #000;padding:24px;background:#fff">'
+      + '<div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:16px">'
+      + '<h3 style="margin:0;font-size:24px">Week 01 Reflective Log</h3>'
+      + '<span class="log-badge" style="background:var(--yel)">Date: 18-09-2026</span>'
+      + '</div>'
+      + '<h4 style="margin:0 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--teal)">What did I learn this week?</h4>'
+      + '<p style="line-height:1.7;font-size:15px;color:#222">This week, I learned about the internship process, required tasks, evidence collection, report preparation, and applying teaching methods and linguistics theories in real classroom settings. I also gained practical experience teaching a First Year co-educational class of 50+ students through reading comprehension, vocabulary, parts of speech, and contextual activities. From the chapter <i>“Quaid on 11th August, 1947”</i>, I conducted reading and explanation, word meanings, phrases and idioms, synonyms and antonyms, MCQs, short questions, pair work, and whole-class answer checking, and approximately 85% of students showed good understanding. Through the Dawn story <i>“The Word War”</i>, I taught the eight parts of speech using charts and sticky notes in a boys-versus-girls activity, and approximately 90% identified them correctly. I learned that students understand language better when they work with examples and take part in activities.</p>'
+      + '<h4 style="margin:20px 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:#000">What can I do differently next week?</h4>'
+      + '<p style="line-height:1.7;font-size:15px;color:#222">I will focus on individual participation and speaking practice: more chances to come to the dais, use new vocabulary in their own sentences, and complete short independent activities. I will also give extra practice to students who hesitate.</p>'
+      + '</article>'
+      + '<article class="card" style="border:1.5px solid #000;padding:24px;background:#fff">'
+      + '<div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:16px">'
+      + '<h3 style="margin:0;font-size:24px">Week 02 Reflective Log</h3>'
+      + '<span class="log-badge" style="background:var(--pink)">Date: 25-09-2026</span>'
+      + '</div>'
+      + '<h4 style="margin:0 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--teal)">What did I learn this week?</h4>'
+      + '<p style="line-height:1.7;font-size:15px;color:#222">I worked on word formation, self-introduction, lexical relations, homophones, and homonyms. I explained affixes, prefixes, suffixes, roots, and base words, then introduced the parts of a self-introduction with a worksheet and speaking practice. About 85% of students understood word formation and completed the activities correctly. I invited students to the dais at random to introduce themselves, then taught homophony and homonymy with a boys-versus-girls competition, where about 90% showed good understanding. Written preparation, speaking practice, contextual examples, and active participation all matter in facilitating second language acquisition.</p>'
+      + '<h4 style="margin:20px 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:#000">What can I do differently next week?</h4>'
+      + '<p style="line-height:1.7;font-size:15px;color:#222">I will give clearer, better organised instructions before each activity, use short examples for punctuation and multilingualism, check understanding before moving on, and manage activity time so students can think, respond, and correct their own mistakes.</p>'
+      + '</article>'
+      + '</div>';
+  }
+
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDocModal(){
+  var overlay = document.getElementById('docModalOverlay');
+  if(overlay){
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') closeDocModal();
+});
 </script>
 </body>
 </html>
